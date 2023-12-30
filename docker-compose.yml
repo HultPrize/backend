@@ -1,0 +1,23 @@
+version: "3"
+
+services:
+  postgres:
+    container_name: postgres
+    image: postgres:latest
+    ports:
+      - "5432:5432"
+    expose:
+      - 5432
+    volumes:
+      - postgres-hultprize:/data/postgres
+    env_file:
+      - docker.env
+    networks:
+      - postgres
+ 
+networks:
+  postgres:
+    driver: bridge
+
+volumes:
+  postgres-hultprize: null
