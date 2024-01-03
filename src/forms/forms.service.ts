@@ -20,36 +20,32 @@ export class FormsService {
 
   async createInterested(newInterested: Interested) {
     const {
-      firstName,
-      lastName,
+      first_name,
+      last_name,
       email,
       phone,
       faculty,
-      academicLevel,
-      isLeader,
-      team,
-      isExternal,
+      academic_level,
+      is_external,
       university,
       sdg,
     } = newInterested;
 
     const result = await this.database.runQuery(
-      'INSERT INTO INTERESADO (Nombre, Apellido, Correo, Telefono, Facultad, Nivel_Academico, Es_lider, Equipo, Externo, Universidad, SDGs) VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11) RETURNING *',
+      'INSERT INTO member (first_name, last_name, email, phone, faculty, academic_level, is_external, university, sdg) VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9) RETURNING *',
       [
-        firstName,
-        lastName,
+        first_name,
+        last_name,
         email,
         phone,
         faculty,
-        academicLevel,
-        isLeader,
-        team,
-        isExternal,
+        academic_level,
+        is_external,
         university,
         sdg,
       ],
     );
 
     return result.rows[0];
-  }
+  }  
 }
