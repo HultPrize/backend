@@ -12,9 +12,14 @@ export class FormsController {
     return this.formsService.createTeam(body);
   }
 
+  @Post('leader')
+  createLeader(@Body() body: Team) {
+    return this.formsService.createLeader(body);
+  }
+
   @Post('interested')
   createInterested(@Body() body: Interested) {
     Logger.log(body);
     return this.formsService.createInterested(body);
-  }
+  }  
 }
