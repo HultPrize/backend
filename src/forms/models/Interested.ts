@@ -5,7 +5,6 @@ export type Interested = {
   phone: string;
   faculty: string;
   academic_level: number;
-  is_leader: boolean;
   is_external: boolean;
   university: string;
   sdg: number;
